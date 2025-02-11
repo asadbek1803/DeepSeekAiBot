@@ -11,9 +11,6 @@ from data.config import BOT_TOKEN
 db = Database()
 bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 
-i18n = I18n(path="./locales", domain="messages")
-I18n.set_current(i18n)
 storage = MemoryStorage()
 dispatcher = Dispatcher(storage=storage)
-i18n_middleware = FSMI18nMiddleware(i18n=i18n)
-i18n_middleware.setup(dispatcher)
+
