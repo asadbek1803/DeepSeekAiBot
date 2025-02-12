@@ -6,6 +6,7 @@ from aiogram.client.session.middlewares.request_logging import logger
 from loader import db, bot
 from data.config import ADMINS
 from componets.messages import messages, buttons
+from datetime import datetime
 
 router = Router()
 
@@ -44,6 +45,7 @@ async def do_start(message: types.Message):
         text = f"Assalomu alaykum, <b>{full_name}</b>! 👋\n{messages['uz']['choose_lang']}"
         await message.answer(text=text, reply_markup=languages_markup, parse_mode=ParseMode.HTML)
 
+
 @router.callback_query(lambda callback_data: callback_data.data in ["uz", "ru", "eng"])
 async def create_account(callback_data: types.CallbackQuery):
     """Foydalanuvchini bazaga qo'shish va unga til tanlanganiga qarab xabar yuborish."""
@@ -67,14 +69,16 @@ async def create_account(callback_data: types.CallbackQuery):
         user = await db.add_user(telegram_id=telegram_id, full_name=full_name, username=username, language=language)
         success_msg, welcome_msg = welcome_messages[language]
         await callback_data.answer(text=success_msg)
-        await bot.send_message(chat_id=telegram_id, text=welcome_msg, parse_mode=ParseMode.HTML)
-
+        await bot.send_message(chat_id=telegram_id, text=welcome_msg, parse_mode=ParseMode.HTML, reply_markup=get_keyboard(language))
+        now = datetime.now()
         # Adminlarga xabar yuborish
         admin_msg = (
             f"Yangi foydalanuvchi ro'yxatdan o'tdi ✅\n"
             f"👤 Ism: <b>{full_name}</b>\n"
             f"📌 Telegram ID: <code>{telegram_id}</code>\n"
-            f"🌍 Til: <b>{language.upper()}</b>"
+            f"🌍 Til: <b>{language.upper()}</b>\n"
+            f"📅 Qo'shilgan sana: <b>{now}</b>\n"
+            f"📊 Bazadagi a'zolar soni: <b>{int(db.count_users())}</b>"
         )
         for admin in ADMINS:
             try:
