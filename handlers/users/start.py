@@ -1,7 +1,7 @@
 from aiogram import Router, types
 from aiogram.filters import CommandStart, Command
 from aiogram.enums.parse_mode import ParseMode
-from aiogram.utils.keyboard import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.utils.keyboard import ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 from aiogram.client.session.middlewares.request_logging import logger
 from loader import db, bot
 
@@ -26,7 +26,10 @@ def get_keyboard(language):
     """Foydalanuvchi tiliga mos Reply tugmalarni qaytaradi."""
     return ReplyKeyboardMarkup(
         keyboard=[
-            [KeyboardButton(text=buttons[language]["btn_open_webapp"])],
+            [KeyboardButton(
+                text=buttons[language]["btn_open_webapp"],
+                web_app=WebAppInfo(url="https://chat.deepseek.com/")
+            )],
             [KeyboardButton(text=buttons[language]["btn_change_lang"])]
         ],
         resize_keyboard=True
