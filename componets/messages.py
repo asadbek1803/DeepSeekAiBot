@@ -22,7 +22,7 @@ buttons = {
 messages = {
     "uz": {
         "choose_lang": "🌍 Iltimos, tilni tanlang:\n\n🇺🇿 O‘zbekcha | 🇷🇺 Русский | 🇺🇸 English",
-        "start": "<b>🤖 AI Chatbot bilan suhbatni boshladingiz!</b>\n\nSavollaringizni yozing.\n\n❌ Chiqish uchun /stop ni yuboring.",
+        "start": "<b>Assalomu alaykum DeebSeek Ai botga xush kelibsiz! Pastdagi menulardan birini tanlang👇👇</b>",
         "stop": "AI Chatbot bilan suhbat yakunlandi.\nQayta boshlash uchun /chat ni yozing.",
         "not_started": "Avval /chat ni yuborib suhbatni boshlang.",
         "limit_reached": "❌ Siz maksimal 20 ta savol berdingiz. Suhbat tugadi.\nQayta boshlash uchun /chat ni yozing.",
@@ -31,7 +31,7 @@ messages = {
         "thinking": "⌛ O'ylamoqda..."
     },
     "ru": {
-        "start": "<b>🤖 Вы начали чат с AI Chatbot!</b>\n\nЗадайте свой вопрос.\n\n❌ Чтобы выйти, отправьте /stop.",
+        "start": "<b>Здравствуйте и добро пожаловать в бот DeebSeek Ai! Выберите одно из меню ниже👇👇</b>",
         "stop": "Чат с AI Chatbot завершен.\nЧтобы начать заново, отправьте /chat.",
         "not_started": "Сначала отправьте /chat, чтобы начать чат.",
         "limit_reached": "❌ Вы задали 20 вопросов. Чат завершен.\nЧтобы начать заново, отправьте /chat.",
@@ -40,7 +40,7 @@ messages = {
         "thinking": "⌛ Думаю..."
     },
     "eng": {
-        "start": "<b>🤖 You started a chat with AI Chatbot!</b>\n\nAsk your questions.\n\n❌ To exit, send /stop.",
+        "start": "<b>Hello and welcome to the DeebSeek Ai bot! Choose one of the menus below👇👇</b>",
         "stop": "AI Chatbot session ended.\nTo restart, send /chat.",
         "not_started": "Please send /chat to start a conversation.",
         "limit_reached": "❌ You have reached the maximum of 20 questions. Chat ended.\nTo restart, send /chat.",
