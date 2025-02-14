@@ -34,7 +34,7 @@ async def send_ad_to_users(message: types.Message, state: FSMContext):
     users = await db.select_all_users()
     count = 0
     for user in users:
-        user_id = user[-1]
+        user_id = user[3]
         try:
             await message.send_copy(chat_id=user_id)
             count += 1
