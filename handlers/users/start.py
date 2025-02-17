@@ -49,7 +49,7 @@ async def do_start(message: types.Message):
         await message.answer(text=text, parse_mode=ParseMode.HTML, reply_markup=get_keyboard(language))
     else:
         # Yangi foydalanuvchini bazaga qo‘shish
-        await db.create_user(telegram_id=telegram_id, full_name=full_name, username=username, created_at=created_at)
+        await db.add_user(telegram_id=telegram_id, full_name=full_name, username=username)
         
         # Adminlarga bildirishnoma yuborish
         admin_text = (f"✅ <b>Yangi foydalanuvchi qo'shildi!</b>\n\n"
